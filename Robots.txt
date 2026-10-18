@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mirazkhalifa.github.io/sitemap.xml
