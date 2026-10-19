@@ -336,33 +336,48 @@
         <div><p class="section-kicker">Professional Focus</p><h2>Technology professional focused on <span>enterprise mobility.</span></h2><p class="large muted">I enjoy working where business requirements, customer expectations and technology solutions meet — turning conversations into clear opportunities and practical outcomes.</p></div>
       </div>
     </section>
-  <!-- 06 / Blog -->
-  <!-- <section class="section blog" id="blog">
-    <div class="container">
+  
+<!-- 06 / Blog -->
+<section class="section blog" id="blog">
+  <div class="container">
 
-      <div class="section-heading">
-        <div>
-          <p class="section-kicker">06 / Blog</p>
-          <h2>Ideas, insights & <span>perspectives.</span></h2>
-        </div>
-
-        <p>
-          Thoughts and practical insights on business development,
-          technology, digital transformation and enterprise solutions.
-        </p>
+    <div class="section-heading">
+      <div>
+        <p class="section-kicker">06 / Blog</p>
+        <h2>Ideas, insights & <span>perspectives.</span></h2>
       </div>
 
-      <div class="blog-placeholder">
-        <span>COMING SOON</span>
-        <h3>Professional insights are on the way.</h3>
-        <p>
-          Articles, technology insights, business perspectives and
-          solution-focused stories will be published here.
-        </p>
-      </div>
-
+      <p>
+        Thoughts and practical insights on business development,
+        technology, digital transformation and enterprise solutions.
+      </p>
     </div>
-  </section> -->
+
+    <div class="blog-posts">
+      {% assign published_posts = site.posts | sort: "date" | reverse %}
+      {% for post in published_posts %}
+      <article class="blog-card">
+        <p class="blog-meta">
+          {{ post.date | date: "%d %b %Y" }}
+          {% if post.category %} · {{ post.category }}{% endif %}
+        </p>
+
+        <h3>
+          <a href="{{ post.url }}">{{ post.title }}</a>
+        </h3>
+
+        <p>
+          {{ post.description | default: post.excerpt | strip_html | truncate: 160 }}
+        </p>
+
+        <a class="blog-read-more" href="{{ post.url }}">Read Article →</a>
+      </article>
+      {% endfor %}
+    </div>
+
+  </div>
+</section>
+
 
 <!-- 07 / Social Media -->
 <section class="section social-media" id="social-media">
