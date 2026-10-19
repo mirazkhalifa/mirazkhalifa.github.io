@@ -1,1 +1,8 @@
+title: "Md. Miraz Khalifa"
+description: "Thoughts and practical insights on business development, technology, digital transformation and enterprise solutions."
+url: "https://mirazkhalifa.github.io"
+baseurl: ""
+permalink: /blog/:title/
 
+plugins:
+  - jekyll-sitemap
