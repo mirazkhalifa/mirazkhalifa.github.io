@@ -1,1 +1,55 @@
 
+---
+layout: null
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title | escape }} | Md. Miraz Khalifa</title>
+  <meta name="description" content="{{ page.description | default: page.excerpt | strip_html | normalize_whitespace | escape }}">
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/blog.css">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="{{ page.title | escape }}">
+  <meta property="og:description" content="{{ page.description | default: page.excerpt | strip_html | normalize_whitespace | escape }}">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": {{ page.title | jsonify }},
+    "description": {{ page.description | default: page.excerpt | strip_html | normalize_whitespace | jsonify }},
+    "datePublished": "{{ page.date | date_to_xmlschema }}",
+    "author": {
+      "@type": "Person",
+      "name": "Md. Miraz Khalifa"
+    },
+    "mainEntityOfPage": "{{ page.url | absolute_url }}"
+  }
+  </script>
+</head>
+<body>
+  <main class="post-page">
+    <a href="/#blog" class="back-to-blog">← Back to Blog</a>
+    <article>
+      <header class="post-header">
+        <p class="post-meta">
+          {{ page.date | date: "%d %b %Y" }}
+          {% if page.category %} · {{ page.category | escape }}{% endif %}
+        </p>
+        <h1>{{ page.title | escape }}</h1>
+        {% if page.description %}
+          <p class="post-description">{{ page.description | escape }}</p>
+        {% endif %}
+      </header>
+      <div class="post-content">
+        {{ content }}
+      </div>
+    </article>
+  </main>
+</body>
+</html>
+
